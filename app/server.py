@@ -13,5 +13,10 @@ def hello_geek():
 def load_pages():
     return get_items()
 
+@app.route("/<page>")
+@json_response
+def load_page(page):
+    return get_item(page)
+
 if __name__ == "__main__":
     app.run(debug=True)
