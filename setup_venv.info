@@ -1,0 +1,8 @@
+# Run these in your linux cli of choice.
+
+# Create virtual environment
+python -m venv
+# Activate
+source venv/bin/activate
+# Install requirements
+pip install -r requirements.txt
