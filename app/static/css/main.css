@@ -19,11 +19,6 @@ body {
     grid-area: footer;
 }
 
-/* 	.wrapper {
-          background-color: #fff;
-          color: #444;
-      } */
-
 .wrapper {
     display: grid;
     grid-gap: 1em;
@@ -31,7 +26,6 @@ body {
         "header"
         "sidebar"
         "content"
-        "sidebar2"
         "footer"
 }
 
@@ -42,7 +36,6 @@ body {
         grid-template-areas:
             "header   header"
             "sidebar  content"
-            "sidebar2 sidebar2"
             "footer   footer";
     }
 }
@@ -54,7 +47,7 @@ body {
         grid-template-columns: 120px auto 120px;
         grid-template-areas:
             "header  header  header"
-            "sidebar content sidebar2"
+            "sidebar content content"
             "footer  footer  footer";
         max-width: 80%;
     }
