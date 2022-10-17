@@ -1,4 +1,4 @@
-from flask import Flask, make_response
+from flask import Flask, make_response, render_template
 from data_handler import get_items, get_item
 from util import json_response
 app = Flask(__name__)
@@ -7,7 +7,7 @@ app = Flask(__name__)
 def hello_geek():
     text = get_item("test_page")
     items = get_items()
-    return f"<h1>It's working!</h1> \n {items[0]} {text}"
+    return render_template("index.html")
 
 @app.route("/data")
 @json_response
