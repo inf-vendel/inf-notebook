@@ -17,7 +17,7 @@ async function load(page) {
 }
 
 function setSidebar(data) {
-  sidebar = document.querySelector(".sidebar-content");
+  sidebar = document.querySelector(".sidebar");
   sidebar.innerHTML = "<ul>";
   for (let line of data) {
     sidebar.insertAdjacentHTML(
