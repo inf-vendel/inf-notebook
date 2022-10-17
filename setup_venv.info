@@ -1,7 +1,7 @@
 # Run these in your linux cli of choice.
 
 # Create virtual environment
-python -m venv
+python3 -m venv venv
 # Activate
 source venv/bin/activate
 # Install requirements
