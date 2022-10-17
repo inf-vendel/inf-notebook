@@ -132,3 +132,5 @@ dmypy.json
 
 app/venv
 
+app/data*
+!app/data/test_page.md
