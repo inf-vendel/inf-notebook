@@ -1,4 +1,4 @@
-from flask import Flask
+from flask import Flask, make_response
 from data_handler import get_items, get_item
 app = Flask(__name__)
 
