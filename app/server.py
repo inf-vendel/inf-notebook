@@ -8,6 +8,10 @@ def hello_geek():
     items = get_items()
     return f"<h1>It's working!</h1> \n {items[0]} {text}"
 
+@app.route("/data")
+@json_response
+def load_pages():
+    return get_items()
 
 if __name__ == "__main__":
     app.run(debug=True)
