@@ -5,5 +5,10 @@ Flask server using dynamic html file, CSS and JavaScript.
 ---
 
 ## Table of Contents
+ - General info
+ - Technologies
+ - Setup
+ - Status
 
+ 
 
