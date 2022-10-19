@@ -74,3 +74,52 @@ body {
     background-color: #d0bdf4;
     width: min-content;
 }
+
+.navbar-custom {
+    background-color: #a0d2eb;
+}
+
+.content {
+    background-color: #e5eaf5;
+    font-size: 1.1rem;
+}
+
+.content pre {
+    color: #534763;
+}
+
+.content p {
+    font-size: 1.2rem;
+}
+
+li {
+    list-style-type: none;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 110%;
+    color: #8aa3cd;
+}
+
+code {
+    padding: 0.5rem;
+    /* font-family: Menlo, Monaco, "Courier New", monospace; */
+    display: inline-block;
+    border-style: dashed;
+    border-color: #692643;
+    border-width: 0.14rem;
+    background-color: #d3c8df;
+    border-radius: 2%;
+}
+
+h1 {
+    color: #34568B;
+    font-size: 2rem;
+}
+
+h2 {
+    color: #4574a3;
+    font-size: 1.75rem;
+}
+
+p {
+    font-size: 1rem;
+}
