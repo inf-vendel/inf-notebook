@@ -24,6 +24,7 @@ Project is created with:
 * Python-Markdown version 3.3.7
 * Javascript
 * Bootstrap version 4.1.3
+* SimpleMDE - Markdown Editor (https://github.com/sparksuite/simplemde-markdown-editor)
 
 ## Setup
 There is a setup_venv.info on how to set up a virtual environment for the flask application.
