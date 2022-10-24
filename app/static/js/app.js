@@ -29,6 +29,7 @@ function setSidebar(data) {
   sidebar.insertAdjacentHTML("beforeend", "</ul>");
 }
 function unhideInput() {
+  content.innerHTML="";
   input.style.display="block";
 }
 function hideInput() {
