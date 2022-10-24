@@ -1,4 +1,4 @@
-let content = document.querySelector(".content");
+let content = document.querySelector(".file");
 (async function getItems() {
   fetch(`/data`)
     .then((response) => response.json())
