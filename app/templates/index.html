@@ -32,6 +32,8 @@
       rel="stylesheet"
       href="{{ url_for('static', filename='css/main.css') }}"
     />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/simplemde/latest/simplemde.min.css">
+    <script src="https://cdn.jsdelivr.net/simplemde/latest/simplemde.min.js"></script>
   </head>
   <body>
     <div class="wrapper">
@@ -65,7 +67,7 @@
                   Actions
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                  <a class="dropdown-item" href="#">Add notes</a>
+                  <a class="dropdown-item" href="#" onclick="unhideInput()">Create note</a>
                   <a class="dropdown-item" href="#">Upload notes</a>
                   <div class="dropdown-divider"></div>
                   <a class="dropdown-item" href="#">Delete notes</a>
@@ -93,8 +95,16 @@
         <a href="#" onclick="load('test_page')">Get started</a>
         <div class="sidebar-content nav nav-pills flex-column sidebar-content"></div>
       </div>
-       <div class="content"></div>
+      <div class="content">
+        <div id="input-holder" style="display: none;">
+        <textarea id="input"></textarea>
+        </div>
+        <div class="file"></div>
+      </div>
       <div class="box footer">Footer goes here</div>
     </div>
   </body>
+    <script>
+    	var simplemde = new SimpleMDE({ element: document.querySelector("#input") });
+    </script>
 </html>
