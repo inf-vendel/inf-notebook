@@ -1,4 +1,5 @@
 let content = document.querySelector(".file");
+let input = document.querySelector("#input-holder");
 (async function getItems() {
   fetch(`/data`)
     .then((response) => response.json())
@@ -26,4 +27,10 @@ function setSidebar(data) {
     );
   }
   sidebar.insertAdjacentHTML("beforeend", "</ul>");
+}
+function unhideInput() {
+  input.style.display="block";
+}
+function hideInput() {
+  input.style.display='none';
 }
