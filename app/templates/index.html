@@ -95,8 +95,13 @@
         <a href="#" onclick="load('test_page')">Get started</a>
         <div class="sidebar-content nav nav-pills flex-column sidebar-content"></div>
       </div>
-       <div class="content"></div>
+      <div class="content">
+        <div class="file"></div>
+      </div>
       <div class="box footer">Footer goes here</div>
     </div>
   </body>
+    <script>
+    	var simplemde = new SimpleMDE({ element: document.querySelector("#input") });
+    </script>
 </html>
