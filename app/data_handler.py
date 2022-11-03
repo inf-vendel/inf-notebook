@@ -1,3 +1,4 @@
+from operator import truediv
 import os
 from markdown import markdown
 
@@ -26,3 +27,11 @@ def save_data(file):
     with open(os.path.join(data + filename + ".md"), "x", encoding = 'utf-8') as f:
         f.write(file["input"])
     return {"type":"success", "text":"Saved successfully."}
+
+def delete_file(file):
+    filename = os.path.join(data + file + ".md")
+    if os.path.exists(filename):
+        os.remove(filename)
+        return True
+    else:
+        return False

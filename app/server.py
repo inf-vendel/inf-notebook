@@ -1,6 +1,6 @@
 from urllib import request
 from flask import Flask, make_response, render_template, request, redirect, flash
-from data_handler import get_items, get_item, save_data
+from data_handler import get_items, get_item, save_data, delete_file
 from util import json_response
 import os
 app = Flask(__name__)
@@ -35,7 +35,11 @@ def save_new():
         return redirect('/')
     else:
         return redirect('/')
-    
+@app.route("/remove/<file>")
+def remove(file):
+    result = delete_file(file)
+    flash(result)
+    return redirect('/')
 
 if __name__ == "__main__":
     app.run(debug=True)
