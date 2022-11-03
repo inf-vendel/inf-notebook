@@ -18,4 +18,11 @@ def get_item(page):
         return html
     else:
         return f"Not found learning material with {page}."
-    
+
+def save_data(file):
+    filename = file["title"] 
+    if filename in  get_tiems():
+        return {"type":"error", "text":"Filename already taken."}
+    with open((os.path.join(data + filename + ".md"), "x", encoding = 'utf-8') as f:
+        f.write(file["content"])
+    return {"type":"success", "text":"Saved successfully."}
