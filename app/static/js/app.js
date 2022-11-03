@@ -23,7 +23,7 @@ function setSidebar(data) {
   for (let line of data) {
     sidebar.insertAdjacentHTML(
       "afterbegin",
-      `<div style="display: inline-block"><a href="/remove/${line}"><span class="bi bi-file-x-fill"></span></a><a style="display: inline" href="#" class="nav-link" onclick="load('${line}')">${line}</a> </div>`
+      `<div style="display: inline-block"><a class="delete" href="/remove/${line}"><span class="bi bi-file-x-fill"></span></a><a style="display: inline" href="#" class="nav-link" onclick="load('${line}')">${line}</a> </div>`
     );
   }
   sidebar.insertAdjacentHTML("beforeend", "</ul>");
@@ -36,5 +36,7 @@ function hideInput() {
   input.style.display='none';
 }
 function showDeleteButtons() {
+  let buttons = document.querySelector(".sidebar-content")
+  buttons.classList.remove("hidden")
 
 }

@@ -44,7 +44,7 @@ body {
     .wrapper {
         margin: 0 auto;
         grid-gap: 10px;
-        grid-template-columns: 120px auto 120px;
+        grid-template-columns: 1fr 4fr 1fr;
         grid-template-areas:
             "header  header  header"
             "sidebar content content"
@@ -56,7 +56,7 @@ body {
 .box {
     /*   background-color: #444; */
     color: #f169a4;
-    border-radius: 5px;
+    border-radius: 0.75rem;
     padding: 10px;
     font-size: 150%;
 }
@@ -72,7 +72,7 @@ body {
     padding: 0;
     font-size: 100%;
     background-color: #d0bdf4;
-    width: min-content;
+    width: 100%;
 }
 
 .navbar-custom {
@@ -80,6 +80,7 @@ body {
 }
 
 .content {
+    border-radius: 2rem;
     background-color: #e5eaf5;
     font-size: 1.1rem;
 }
@@ -122,4 +123,8 @@ h2 {
 
 p {
     font-size: 1rem;
+}
+
+.hidden .delete {
+    display: none;
 }
