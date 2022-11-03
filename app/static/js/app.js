@@ -23,7 +23,7 @@ function setSidebar(data) {
   for (let line of data) {
     sidebar.insertAdjacentHTML(
       "afterbegin",
-      `<a href="#" class="nav-link" onclick="load('${line}')">${line}</a>`
+      `<div style="display: inline-block"><a href="/remove/${line}"><span class="bi bi-file-x-fill"></span></a><a style="display: inline" href="#" class="nav-link" onclick="load('${line}')">${line}</a> </div>`
     );
   }
   sidebar.insertAdjacentHTML("beforeend", "</ul>");
@@ -34,4 +34,7 @@ function unhideInput() {
 }
 function hideInput() {
   input.style.display='none';
+}
+function showDeleteButtons() {
+
 }
