@@ -19,5 +19,16 @@ def load_pages():
 def load_page(page):
     return get_item(page)
 
+@app.route("/save<data>")
+def save_data(data):
+# Move this to data handler.
+# Data = {"title":"Example Title", "content":""}
+    filename = data["title"] 
+    if filename in  get_tiems():
+        return {"type":"error", "text":"Filename already taken."}
+    with open(filename + ".md", "x", encoding = 'utf-8') as file:
+        file.write(data["content"])
+    
+
 if __name__ == "__main__":
     app.run(debug=True)
