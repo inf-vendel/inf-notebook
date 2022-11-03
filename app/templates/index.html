@@ -12,6 +12,7 @@
       integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
       crossorigin="anonymous"
     />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
     <script
       src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
       integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
@@ -32,7 +33,10 @@
       rel="stylesheet"
       href="{{ url_for('static', filename='css/main.css') }}"
     />
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/simplemde/latest/simplemde.min.css">
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/simplemde/latest/simplemde.min.css"
+    />
     <script src="https://cdn.jsdelivr.net/simplemde/latest/simplemde.min.js"></script>
   </head>
   <body>
@@ -67,10 +71,12 @@
                   Actions
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                  <a class="dropdown-item" href="#" onclick="unhideInput()">Create note</a>
+                  <a class="dropdown-item" href="#" onclick="unhideInput()"
+                    >Create note</a
+                  >
                   <a class="dropdown-item" href="#">Upload notes</a>
                   <div class="dropdown-divider"></div>
-                  <a class="dropdown-item" href="#">Delete notes</a>
+                  <a class="dropdown-item" href="#" onclick="showDeleteButtons()">Delete notes</a>
                 </div>
               </li>
             </ul>
@@ -93,18 +99,39 @@
       </div>
       <div class="box sidebar">
         <a href="#" onclick="load('test_page')">Get started</a>
-        <div class="sidebar-content nav nav-pills flex-column sidebar-content"></div>
+        <div
+          class="sidebar-content nav nav-pills flex-column hidden"
+        ></div>
       </div>
       <div class="content">
-        <div id="input-holder" style="display: none;">
-        <textarea id="input"></textarea>
+        {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+          <ul class=flashes>
+          {% for category, message in messages %}
+            <li class="text-{{ category }}">{{ message }}</li>
+          {% endfor %}
+          </ul>
+        {% endif %}
+        {% endwith %}
+        <div id="input-holder" style="display: none">
+          <form action="/save_new" method="POST" enctype=multipart/form-data>
+          <p>
+            <label for="title">Title:</label> <br />
+            <input name="title" type="text" required />
+          </p>
+          <label for="input">Content:</label> <br />
+          <textarea name="input" id="input"></textarea>
+          <button type="submit">Submit</button>
+          </form>
         </div>
         <div class="file"></div>
       </div>
       <div class="box footer">Footer goes here</div>
     </div>
   </body>
-    <script>
-    	var simplemde = new SimpleMDE({ element: document.querySelector("#input") });
-    </script>
+  <script>
+    var simplemde = new SimpleMDE({
+      element: document.querySelector("#input"),
+    });
+  </script>
 </html>

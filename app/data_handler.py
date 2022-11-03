@@ -1,3 +1,4 @@
+from operator import truediv
 import os
 from markdown import markdown
 
@@ -18,4 +19,19 @@ def get_item(page):
         return html
     else:
         return f"Not found learning material with {page}."
-    
+
+def save_data(file):
+    filename = file["title"] 
+    if filename in  get_items():
+        return {"type":"danger", "text":"Filename already taken."}
+    with open(os.path.join(data + filename + ".md"), "x", encoding = 'utf-8') as f:
+        f.write(file["input"])
+    return {"type":"success", "text":"Saved successfully."}
+
+def delete_file(file):
+    filename = os.path.join(data + file + ".md")
+    if os.path.exists(filename):
+        os.remove(filename)
+        return True
+    else:
+        return False
