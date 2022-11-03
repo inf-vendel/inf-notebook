@@ -1,11 +1,10 @@
 from urllib import request
-from flask import Flask, make_response, render_template, request, redirect
+from flask import Flask, make_response, render_template, request, redirect, flash
 from data_handler import get_items, get_item, save_data
 from util import json_response
 app = Flask(__name__)
 
 @app.route('/')
-@app.route('/list')
 def index():
     text = get_item("test_page")
     items = get_items()
@@ -29,10 +28,11 @@ def save_new():
         title = data['title']
         content = data['input']
         print(data)
-        save_data(data)
-        return redirect('/list')
+        result = save_data(data)
+        flash(result['text'])
+        return redirect('/')
     else:
-        return redirect('/list')
+        return redirect('/')
     
 
 if __name__ == "__main__":
