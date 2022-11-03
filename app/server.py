@@ -1,5 +1,5 @@
 from flask import Flask, make_response, render_template
-from data_handler import get_items, get_item
+from data_handler import get_items, get_item, save_data
 from util import json_response
 app = Flask(__name__)
 
@@ -20,14 +20,9 @@ def load_page(page):
     return get_item(page)
 
 @app.route("/save<data>")
-def save_data(data):
-# Move this to data handler.
+def save_new(data):
 # Data = {"title":"Example Title", "content":""}
-    filename = data["title"] 
-    if filename in  get_tiems():
-        return {"type":"error", "text":"Filename already taken."}
-    with open(filename + ".md", "x", encoding = 'utf-8') as file:
-        file.write(data["content"])
+    return save_data(data)
     
 
 if __name__ == "__main__":
