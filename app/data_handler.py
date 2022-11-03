@@ -22,7 +22,7 @@ def get_item(page):
 def save_data(file):
     filename = file["title"] 
     if filename in  get_items():
-        return {"type":"error", "text":"Filename already taken."}
+        return {"type":"danger", "text":"Filename already taken."}
     with open(os.path.join(data + filename + ".md"), "x", encoding = 'utf-8') as f:
         f.write(file["input"])
     return {"type":"success", "text":"Saved successfully."}

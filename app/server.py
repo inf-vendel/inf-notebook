@@ -2,7 +2,9 @@ from urllib import request
 from flask import Flask, make_response, render_template, request, redirect, flash
 from data_handler import get_items, get_item, save_data
 from util import json_response
+import os
 app = Flask(__name__)
+app.secret_key = os.urandom(12)
 
 @app.route('/')
 def index():
@@ -29,7 +31,7 @@ def save_new():
         content = data['input']
         print(data)
         result = save_data(data)
-        flash(result['text'])
+        flash(result['text'], result['type'])
         return redirect('/')
     else:
         return redirect('/')
