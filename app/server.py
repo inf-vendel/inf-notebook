@@ -29,12 +29,12 @@ def save_new():
         data = request.form.to_dict()
         title = data['title']
         content = data['input']
-        print(data)
         result = save_data(data)
         flash(result['text'], result['type'])
         return redirect('/')
     else:
         return redirect('/')
+        
 @app.route("/remove/<file>")
 def remove(file):
     result = delete_file(file)
